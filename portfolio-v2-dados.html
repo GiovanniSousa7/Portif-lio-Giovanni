@@ -160,6 +160,7 @@
     position:relative; background: var(--surface); border:1px solid var(--line);
     padding: 30px 28px 28px;
   }
+  .case.featured{ grid-column: 1 / -1; border-color: var(--cyan); }
   .case-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:14px;}
   .case h3{ font-family: var(--display); font-size:23px; margin:0 0 6px; font-weight:600; color: var(--ink);}
   .case .role{ font-family: var(--mono); font-size:13px; color: var(--ink-soft); }
@@ -179,6 +180,12 @@
   @keyframes pulse{ 0%,100%{ opacity:1; box-shadow:0 0 0 0 rgba(95,208,200,0.5);} 50%{ opacity:0.6; box-shadow:0 0 0 5px rgba(95,208,200,0);} }
 
   .case p.desc{ margin: 14px 0 18px; color: var(--ink); font-size: 14.5px; }
+  .case .arch-line{
+    font-family: var(--mono); font-size:12.5px; color: var(--ink-soft);
+    margin: 0 0 18px; padding: 10px 14px; background: var(--bg2); border: 1px dashed var(--line);
+    overflow-x:auto; white-space:nowrap;
+  }
+  .case .arch-line b{ color: var(--amber); font-weight:600; }
   .case .stack-row{ display:flex; flex-wrap:wrap; gap:7px; margin-bottom: 20px; }
   .case .stack-row span{
     font-family: var(--mono); font-size:13px; padding:4px 9px; background: var(--bg2);
@@ -281,16 +288,19 @@
         <p>Sou estudante de Ciência e Tecnologia com foco em Dados na UFABC.</p>
         <p>Minha experiência profissional começou na área administrativa e financeira, atuando com conciliação de dados e declaração de renda de instituições presentes em diversos estados brasileiros. Essa vivência fortaleceu minha capacidade analítica, atenção aos detalhes e adaptação em ambientes distintos e dinâmicos.</p>
         <p>Também empreendi de forma autônoma no mercado de veículos seminovos, realizando negociações, análise de preços, controle de margem de lucro e giro de estoque — uma experiência prática de como dados geram vantagem competitiva.</p>
-        <p>Paralelamente, venho desenvolvendo projetos completos de Engenharia e Análise de Dados, aplicando Python, SQL, PostgreSQL, FastAPI, Next.js, Power BI e ferramentas de Inteligência Artificial, incluindo um sistema de monitoramento automatizado de preços com coleta de dados, banco de dados, API, dashboard interativo e geração de insights com IA.</p>
+        <p>Paralelamente, venho desenvolvendo projetos completos de Engenharia e Análise de Dados, aplicando Python, SQL, PostgreSQL, FastAPI, Next.js, Power BI, AWS e ferramentas de Inteligência Artificial — incluindo um pipeline de dados na nuvem com arquitetura em camadas e testes de qualidade automatizados, e um sistema de monitoramento automatizado de preços com coleta de dados, banco de dados, API, dashboard interativo e geração de insights com IA.</p>
         <p>Tenho facilidade para aprender novas tecnologias, gosto de resolver problemas de forma estruturada e acredito que comunicação é tão importante quanto conhecimento técnico para gerar impacto com dados.</p>
       </div>
       <div class="keyword-panel reveal">
         <p class="k-title">// palavras-chave</p>
         <div class="kw-tags">
+          <span>Engenharia de Dados</span>
           <span>Análise de Dados</span>
           <span>Business Intelligence</span>
           <span>Python</span>
           <span>SQL</span>
+          <span>AWS</span>
+          <span>dbt</span>
           <span>Power BI</span>
           <span>ETL/ELT</span>
           <span>Data Warehouse</span>
@@ -313,11 +323,29 @@
     </div>
     <div class="case-grid">
 
+      <div class="case featured reveal">
+        <div class="case-top">
+          <div>
+            <h3>BCB Data Pipeline</h3>
+            <span class="role">Projeto de destaque · Engenharia de Dados na nuvem</span>
+          </div>
+          <div class="status-badge" data-badge><span class="dot"></span>pipeline: ativo</div>
+        </div>
+        <p class="desc">Pipeline de dados end-to-end na AWS, ingerindo indicadores econômicos do Banco Central (câmbio, Selic, IPCA) via API, com arquitetura medallion completa e testes de qualidade automatizados.</p>
+        <p class="arch-line"><b>raw</b> (S3) → <b>catálogo</b> (Glue) → <b>query</b> (Athena) → <b>staging → intermediate → marts</b> (dbt)</p>
+        <div class="stack-row">
+          <span>Python</span><span>AWS S3</span><span>AWS Glue</span><span>Amazon Athena</span><span>dbt</span><span>IAM</span><span>Testes de Qualidade</span>
+        </div>
+        <div class="case-links">
+          <a href="https://github.com/GiovanniSousa7/bcb-data-pipeline" target="_blank" rel="noopener">ver no github →</a>
+        </div>
+      </div>
+
       <div class="case reveal">
         <div class="case-top">
           <div>
             <h3>Price Monitor</h3>
-            <span class="role">Projeto principal · Engenharia de Dados</span>
+            <span class="role">Engenharia de Dados · Full-stack</span>
           </div>
           <div class="status-badge" data-badge><span class="dot"></span>pipeline: ativo</div>
         </div>
@@ -416,7 +444,7 @@
       </div>
       <div class="stack-group reveal">
         <h4>Banco de Dados &amp; Cloud</h4>
-        <div class="pills"><span>PostgreSQL</span><span>MySQL</span><span>Data Warehouse</span><span>Cloud (conceitos)</span><span>AWS (Fundamentos)</span></div>
+        <div class="pills"><span>PostgreSQL</span><span>MySQL</span><span>Data Warehouse</span><span>AWS S3</span><span>AWS Glue</span><span>Amazon Athena</span><span>IAM</span></div>
       </div>
       <div class="stack-group reveal">
         <h4>BI &amp; Visualização</h4>
@@ -424,7 +452,7 @@
       </div>
       <div class="stack-group reveal">
         <h4>Engenharia &amp; Automação</h4>
-        <div class="pills"><span>ETL/ELT</span><span>FastAPI</span><span>Machine Learning</span><span>Inteligência Artificial</span><span>Git</span></div>
+        <div class="pills"><span>ETL/ELT</span><span>dbt</span><span>FastAPI</span><span>Machine Learning</span><span>Inteligência Artificial</span><span>Git</span></div>
       </div>
     </div>
   </div>
